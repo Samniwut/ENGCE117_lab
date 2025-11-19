@@ -1,9 +1,7 @@
-// Online C compiler to run C program online
 #include <stdio.h>
 
 int main() {
     int num1, num2, operationCode, result;
-    //scanf("%d %d %d",&num1,&num2,&operationCode);
     scanf("%d",&num1);
     scanf("%d",&num2);
     scanf("%d",&operationCode);
