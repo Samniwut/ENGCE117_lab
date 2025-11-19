@@ -8,7 +8,7 @@ int main()
     return 0;
    }
    for(i=0; i<=N ; i++){
-    sum = sum+i;
+    sum +=i;
    }
    printf("%d",sum);
     return 0;
