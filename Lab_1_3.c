@@ -2,9 +2,9 @@
 
 int main() {
     int num1, num2, operationCode, result;
-    scanf("%d",&num1);
-    scanf("%d",&num2);
-    scanf("%d",&operationCode);
+     if (scanf("%d %d %d", &num1, &num2, &operationCode) != 3) {
+        printf("Invalid Operation");
+        return 0;} // Handle input failure
     if(operationCode >= 5){
         printf("Invalid Operation");
         return 0;
