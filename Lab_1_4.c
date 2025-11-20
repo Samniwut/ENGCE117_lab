@@ -2,10 +2,9 @@
 int main()
 {
     int N, sum = 0, i;
-   scanf("%d",&N);
-   if(N<0){
+   if(scanf("%d",&N) || N<=0){
     printf("Erorr");
-    return 0;
+    return 1;
    }
    for(i=0; i<=N ; i++){
     sum +=i;
