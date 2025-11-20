@@ -1,4 +1,3 @@
-// Pre-code (โค้ดบังคับ)
 #include <stdio.h>
 
 int main() {
@@ -10,7 +9,7 @@ int main() {
         if(scanf("%d", &number) != 1){
             return 1;
         }
-        if(number > 0 || number > 10){
+        if(number < 0 || number > 10){
           printf("Error: Value must be 1-10.");
         }
 
