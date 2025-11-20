@@ -7,10 +7,10 @@ int main() {
     // TODO: Implement the do-while loop structure for validation
     do {
         printf("Enter a number (1-10): ");
-        if (scanf("%d", &number) != 1) {
-            break;
+        if(scanf("%d", &number) != 1){
+            return 1;
         }
-        if(number < 0 || number > 10){
+        if(number > 0 || number > 10){
           printf("Error: Value must be 1-10.");
         }
 
