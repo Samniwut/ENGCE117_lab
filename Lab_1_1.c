@@ -10,7 +10,7 @@ int main() {
         return 1;// Handle input failure
     }else{
       for(int i=0; i<N ;i++){
-        printf("Hello Loop!\n");
+        printf("Hello Loop!!\n");
     }
     }
     // TODO: Implement the for loop to print the message N times
