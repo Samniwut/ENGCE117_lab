@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+int totaCost1(int weight_kg);
+int totalCost2(int weight_kg);
 int main() {
     int zoneCode;
     float weight_kg;
@@ -12,18 +13,10 @@ int main() {
     switch (zoneCode)
     {
     case 1:
-        if(weight_kg <=5){
-           totalCost = 50;
-          }else{
-          totalCost= 80;
-          }
+        totalCost = totaCost1(weight_kg);
         break;
     case 2:
-        if(weight_kg <=10){
-           totalCost = 150;
-          }else{
-          totalCost= 250;
-          }
+        totalCost = totalCost2(weight_kg);
         break;
     case 3 :
       totalCost= 500;
@@ -41,4 +34,22 @@ int main() {
     } 
 
     return 0;
+}
+int totaCost1(int weight_kg){
+    int cost;
+    if(weight_kg <=5){
+       cost = 50;
+      }else{
+      cost= 80;
+      }
+    return cost;
+}
+int totalCost2(int weight_kg){
+    int cost;
+    if(weight_kg <=10){
+       cost = 150;
+      }else{
+      cost= 250;
+      }
+    return cost;
 }
