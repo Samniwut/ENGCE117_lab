@@ -1,55 +1,52 @@
 #include <stdio.h>
-int totaCost1(int weight_kg);
-int totalCost2(int weight_kg);
+float totalCost1(float weight_kg); 
+float totalCost2(float weight_kg);
 int main() {
     int zoneCode;
     float weight_kg;
     float totalCost = 0.0;
-    
-    // รับค่ารหัสโซนและน้ำหนัก
     if (scanf("%d %f", &zoneCode, &weight_kg) != 2) {
-        return 1; // Handle input failure
+        fprintf(stderr, "Input reading failed.\n");
+        return 1; 
     }
-    switch (zoneCode)
-    {
+    
+    switch (zoneCode) {
     case 1:
-        totalCost = totaCost1(weight_kg);
+        totalCost = totalCost1(weight_kg); 
         break;
     case 2:
-        totalCost = totalCost2(weight_kg);
+        totalCost = totalCost2(weight_kg); 
         break;
+        
     case 3 :
-      totalCost= 500;
+        totalCost = 500.0; 
         break;
+        
     default:
-        printf("Invalid Zone Code");
-        return 0;
-        break;
+        printf("Invalid Zone Code\n");
+        return 0; 
     }
-    // TODO: Implement the switch statement based on zoneCode, 
-    // and the nested if-else logic based on weight_kg.
-
-    if (totalCost > 0.0 || zoneCode > 3 || zoneCode < 1) { // Check if calculation succeeded or if invalid code was found
-        printf("%.2f\n", totalCost);
-    } 
-
+    
+    printf("Total Cost: %.2f Baht\n", totalCost);
+    
     return 0;
 }
-int totaCost1(int weight_kg){
-    int cost;
-    if(weight_kg <=5){
-       cost = 50;
-      }else{
-      cost= 80;
-      }
+
+float totalCost1(float weight_kg) {
+    float cost;
+    if (weight_kg <= 5.0) {
+        cost = 50.0;
+    } else { 
+        cost = 80.0;
+    }
     return cost;
 }
-int totalCost2(int weight_kg){
-    int cost;
-    if(weight_kg <=10){
-       cost = 150;
-      }else{
-      cost= 250;
-      }
+float totalCost2(float weight_kg) {
+    float cost;
+    if (weight_kg <= 10.0) {
+        cost = 150.0;
+    } else { 
+        cost = 250.0;
+    }
     return cost;
 }
