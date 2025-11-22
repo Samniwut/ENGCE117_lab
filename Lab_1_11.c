@@ -7,15 +7,25 @@ int main() {
     if (scanf("%f %d",&price_before_vat,&categoryCode)!=2) {
         return 1;
     }switch (categoryCode) {
-        case 1:totalBill=price_before_vat*1.07;break;
-        case 2:totalBill=price_before_vat;break;
-        case 3:totalBill=price_before_vat*1.15;break;
-        default:printf("Invalid Category\n");
-        return 0; break;
-    }if (categoryCode >= 1 && categoryCode <= 3) {
+        case 1:
+         totalBill=price_before_vat*1.07;
+        break;
+        case 2:
+         totalBill=price_before_vat;
+        break;
+        case 3:
+         totalBill=price_before_vat*1.15;
+        break;
+        default:
+         printf("Invalid Category\n");
+        return 0; 
+         break;
+     }
+    if (categoryCode >= 1 && categoryCode <= 3){
         vatAmount = totalBill - price_before_vat;
         printf("VAT Amount: %.2f\n", vatAmount);
         printf("Total Price: %.2f\n", totalBill);
-    } else {printf("Invalid Category\n");}
+    }else 
+    {printf("Invalid Category\n");}
     return 0;
 }
