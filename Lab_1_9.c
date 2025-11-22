@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-// เปลี่ยนพารามิเตอร์ของฟังก์ชันให้เป็น float
 float totaCost1(float weight_kg); 
 float totalCost2(float weight_kg);
 
@@ -10,7 +9,6 @@ int main() {
     float totalCost = 0.0;
     
     // รับค่ารหัสโซนและน้ำหนัก
-    printf("Enter Zone Code and Weight (e.g., 1 3.5): ");
     if (scanf("%d %f", &zoneCode, &weight_kg) != 2) {
         fprintf(stderr, "Input reading failed.\n");
         return 1; // Handle input failure
