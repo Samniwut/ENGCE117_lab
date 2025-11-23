@@ -12,7 +12,7 @@ int main() {
     return 0;
 }
 void  isAccessGranted(int clearanceLevel, int age, int isActive) {
-    if((clearanceLevel == 3 && isActive == 1) || (clearanceLevel == 2 && age <= 25 && isActive == 1)){
+    if((clearanceLevel == 3 && isActive == 1) || (clearanceLevel == 2 && age >= 25 && isActive == 1)){
        printf("Access Granted\n");
     }
     else{
