@@ -1,14 +1,24 @@
 #include <stdio.h>
-
+int calculateTotalBill(int planCode, float dataUsage_GB);
 int main() {
     int planCode;
     float dataUsage_GB;
     float totalBill = 0.0;
     
-    // รับค่ารหัสแพ็กเกจและปริมาณการใช้ข้อมูล
     if (scanf("%d %f", &planCode, &dataUsage_GB) != 2) {
-        return 1; // Handle input failure
+        return 1; 
     }
+    totalBill = calculateTotalBill(planCode, dataUsage_GB);
+
+    if (planCode == 1 || planCode == 2) {
+        printf("%.2f\n", totalBill);
+    } else {
+        printf("Invalid Plan Code\n");
+    }//end if
+    return 0;
+} 
+int calculateTotalBill(int planCode, float dataUsage_GB) {
+    float totalBill = 0.0;
     switch (planCode)
     {
     case 1:
@@ -30,12 +40,5 @@ int main() {
     default:
         break;
     }//end switch
-
-    if (planCode == 1 || planCode == 2) {
-        printf("%.2f\n", totalBill);
-    } else {
-        printf("Invalid Plan Code\n");
-    }//end if
-
-    return 0;
-} 
+    return totalBill;
+}
