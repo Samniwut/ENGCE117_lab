@@ -10,7 +10,18 @@ int main (){
         printf("Error");
            return 1 ;
     }
-    
-    printf("Loan settled in %d month. \n",monthCount);
+    while (principal > 0)
+    {
+    interest = principal * INTEREST_RATE ;
+    principal += interest ;
+
+    if (principal < monthlyPayment)
+    {
+        principal + PRNALTY;
+    }
+    principal -= monthlyPayment ;
+    monthCount++ ;
+    printf("Month %d Remaining: %.2f\n",monthCount,principal);
+    }
     return 0;
 }
