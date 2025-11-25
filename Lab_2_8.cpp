@@ -21,7 +21,7 @@ int main(){
                 printf("Student ID %d : Pass \n",studentId);
                 passaCount++;
             }else if(score < 50 && attendancePercent < 75.0){
-                printf("Student ID %d : FAIL - Low Score and Low Attendance(%.2f%%) \n",studentId, attendancePercent);
+                printf("Student ID %d : FAIL - Both Score and Low Attendance \n",studentId);
                 failcount++;
             }
             else if(score < 50){
