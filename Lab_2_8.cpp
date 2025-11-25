@@ -1,4 +1,5 @@
 #include <stdio.h>
+void printLine(int passaCount, int failcount);
 int main(){
      int N, i;
      int studentId, score, totalClasses, abesntClasses;
@@ -16,26 +17,30 @@ int main(){
             }
             attendancePercent = (float)(totalClasses -abesntClasses)/ totalClasses * 100.0;
 
-            if(score >= 50 && attendancePercent >= 75.0){//คะแนนผ่าน 50 ขึ้นไป และเข้าเรียนไม่น้อยกว่า 75%
+            if(score >= 50 && attendancePercent >= 75.0){
                 printf("Student ID %d : Pass \n",studentId);
                 passaCount++;
-            }else if(score < 50 && attendancePercent < 75.0){//คะแนนไม่ผ่าน และเข้าเรียนน้อยกว่า 75%
+            }else if(score < 50 && attendancePercent < 75.0){
                 printf("Student ID %d : FAIL - Low Score and Low Attendance(%.2f%%) \n",studentId, attendancePercent);
                 failcount++;
             }
-            else if(score < 50){//คะแนนไม่ผ่าน
+            else if(score < 50){
                 printf("Student ID %d : FAIL - Low Score \n",studentId);
                 failcount++;
-            }else if(attendancePercent < 75.0){//เข้าเรียนน้อยกว่า 75%
+            }else if(attendancePercent < 75.0){
                 printf("Student ID %d : FAIL - Low Attendance(70.00%) \n",studentId);
                 failcount++;
             }
             
-        }//end for
-    printf("--Summary--\n");
-    printf("Total Pass: %d \n",passaCount);
-    printf("Total Fail: %d \n",failcount);
+        }
+      printLine(passaCount,failcount);
 
     return 0;
+
+}
+void printLine(int passaCount, int failcount){
+     printf("--Summary--\n");
+    printf("Total Pass: %d \n",passaCount);
+    printf("Total Fail: %d \n",failcount);
 
 }

@@ -1,4 +1,6 @@
 #include <stdio.h>
+int calculatdailyDeposit (int dailyDeposit);
+
 int main(){
 
     int N_MONTHS,months,successCount = 0;
@@ -9,7 +11,7 @@ int main(){
     }
 
     for (months = 1; months <= N_MONTHS; months++){ 
-           
+
         monthlyTotal = 0.00;
 
          if (scanf("%f",&dailyDeposit) != 1){
@@ -29,4 +31,10 @@ int main(){
     }
     printf("Success Count: %d\n",successCount);
     return 0;
+}
+
+int calculatdailyDeposit (int dailyDeposit){
+    int monthlyTotal;
+    monthlyTotal += dailyDeposit;
+    return monthlyTotal;
 }
