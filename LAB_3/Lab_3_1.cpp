@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void ListProducts(int productId, float price, char name[]);
+void ListProducts(int productId, float price, char name[50]);
 
   struct Product
   {
@@ -22,6 +22,6 @@ int main() {
     return 0;
     }
 
-    void ListProducts(){
-        printf("ID: 101,  Price: $0.50,Name: Apple\n");
+    void ListProducts(int productId, float price, char name[50]){
+        printf("ID: %d,Price: %.2f ,Name: %s\n", productId, price, name);
     }
