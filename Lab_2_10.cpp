@@ -7,14 +7,18 @@ int main(){
     float APR_LOW = 0.01;   
     float totalPenalties = 0.0 ; 
 
-    if (scanf("%f %f %d", &initialBalance,PRMALTYY_FEE,&N_PERIODS) != 3) {
+    if (scanf("%f %f %d", &initialBalance,&PRMALTYY_FEE,&N_PERIODS) != 3) {
         return 1;
     }   
+    currentBalance = initialBalance;
+    printf("Starting Balance: %.2f\n", currentBalance);
+
     for ( i = 0; i < N_PERIODS; i++)
     {  
-        if(scanf("%d", &cmdCode) != 1){
+        if(scanf("%d %f", &cmdCode,&amount) != 2){
             break;
          }
+         printf("--- Month %d ---\n",i+1);
           switch (cmdCode){
         case 1:
             currentBalance+= amount;
@@ -31,11 +35,11 @@ int main(){
             break;
         case 3:
             if(currentBalance >= 1000.0){
-                interestRate = initialBalance * (APR_HIGH/12);
-                printf("Interest %.2f (Rate : %.2f%) \n", interestRate,APR_HIGH*100);
+                interestRate = initialBalance * (APR_HIGH/10);
+                printf("Interest %.2f (Rate : %.2f%%) \n", interestRate,APR_HIGH*100);
             }else{
-                interestRate = initialBalance * (APR_LOW/12);
-                printf("Interest %.2f (Rate : %.2f%) \n", interestRate,APR_HIGH*100);      
+                interestRate = initialBalance * (APR_LOW/10);
+                printf("Interest %.2f (Rate : %.2f%%) \n", interestRate,APR_LOW*100);      
             }
             break;
             
