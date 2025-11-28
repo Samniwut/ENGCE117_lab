@@ -28,11 +28,11 @@ for (i = 0; i < N; i++){
 }
 for ( i = 0; i < N; i++)
 {   
-    // printf("ID: %d ", students[i].StudentId);
-    // printf("Name: %s ", students[i].name);
-    // printf("Score: %.2f\n", students[i].score);
+    printf("ID: %d ", students[i].StudentId);
+    printf("Name: %s ", students[i].name);
+    printf("Score: %.2f\n", students[i].score);
 
-
+    
     forloopOutput(students[i].StudentId, students[i].name, students[i].score);
 }
 
