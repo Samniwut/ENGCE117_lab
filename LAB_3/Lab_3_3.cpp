@@ -11,8 +11,10 @@ struct Student{
 int main(){
 
   int N,i ; 
-  float total=0.0, avg; 
-if(scanf("%d", &N) != 1){
+  float total=0.0, avg = 0.0; 
+
+if(scanf("%d", &N) != 1 || N <= 0){
+    printf("Average Score: %.2f\n", avg);
     return 1;   }
 
 struct Student students[N];
