@@ -1,17 +1,21 @@
 #include <stdio.h>
-
-void Getset(int *date[5], int *num);
+void Getset(int arr[], int *num);
 int main() {
-    int *date , num;
-    scanf("%d %d",&date,&num);
-    printf("%d %d",date,num);
-    //Getset(&date, &num);
+    int N ;
+    if(scanf("%d", &N) != 1 || N <= 0) {
+        printf("Invalid input\n");
+        return 1;
+    }
+    int &num = N;
+    int data[num];
+    for(int i = 0; i < num; i++) {
+        scanf("%d", &data[i]);
+    }
+    Getset(data, &num);
     return 0;
 }
-
-void Getset(int *date[5], int *num){
-    for(int i=0; i<*num; i++){
-        printf("%d ", *num);
+void Getset(int arr[], int *num) {
+    for (int i = 0; i < *num; i++) {
+        printf("%d ",*(arr+i));
     }
-    
-}
+    ;}
