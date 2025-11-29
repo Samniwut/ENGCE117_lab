@@ -16,9 +16,8 @@ int main(){
     {
         if(scanf(" %f %s",&transactions[i].amount ,&transactions[i].description) != 2) {
         return 1;
+     }
     }
-    }
-    printf("%d" ,i );
     
     return 0;
 }
