@@ -20,11 +20,6 @@ int main(){
         return 1;
      }
     (transactions[i].amount >= 0) ? (totalInciome += transactions[i].amount) : (totalExpense += -transactions[i].amount);
-    //  if(transactions[i].amount >= 0) {
-    //     totalInciome += transactions[i].amount;
-    //  }else if (transactions[i].amount < 0) {
-    //     totalExpense += transactions[i].amount;
-    //  }
     } 
     netBalance = totalInciome - totalExpense; 
 
