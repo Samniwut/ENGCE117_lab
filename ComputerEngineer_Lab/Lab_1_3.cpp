@@ -1,14 +1,14 @@
 #include <stdio.h>
-int Getset(int *arr);
+int *Getset(int *arr);
 
 int main() {
-    int data,num;
+    int *data,num;
     scanf("%d", &num);
-    num = Getset(&data);
+
+    data = Getset(&num);
+    printf("data : %d",*data);
     return 0;
 }
-int Getset(int *arr) {
-    for (int i = 0; i < 5; i++) {
-        printf("%d ",*(arr+i));
-    }
+int *Getset(int *arr){
+    return arr;
 }
