@@ -8,6 +8,8 @@ struct SalesRecord{
 
 int main(){
      int N , i;
+     float  grandTotalCommission = 0.0;
+
      if(scanf("%d",&N) != 1){
         return 1 ;
      }
@@ -29,6 +31,9 @@ int main(){
         beseCommisstion -= 100;
       }
       
+      grandTotalCommission += beseCommisstion;
      }
+
+     printf("Grand Total Commission : %.2f\n",grandTotalCommission);
     return 0;
 }
