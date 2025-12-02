@@ -23,11 +23,11 @@ int main(){
       float ItemCost = 0.0;
       ;
       
-       if(scanf("%s %f %d",Item[i].name,&Item[i].unitPrice,&Item[i].quanatity) !=3){
+       if(scanf("%s %f %d",&Item[i].name,&Item[i].unitPrice,&Item[i].quanatity) !=3){
         return 1 ;
        }
       ItemCost = Item[i].unitPrice*Item[i].quanatity;
-       printf("Name : %s  x Qty : %.2f  = %.2f",Item[i].name,Item[i].quanatity,ItemCost);
+       printf("Name : %s x %d  = %.2f\n",Item[i].name,Item[i].quanatity,ItemCost);
      
        subtotal += ItemCost;
     }
@@ -35,9 +35,9 @@ int main(){
     totalVat = subtotal * VAT_RATE;
     gradTotal =  subtotal+totalVat;
 
-    printf("SubTotal : %f\n",subtotal);
-    printf("VAT (7%) : %f \n",totalVat);
-    printf("Grand Total : %f\n",gradTotal);
+    printf("SubTotal : %.2f\n",subtotal);
+    printf("VAT (7%) : %.2f \n",totalVat);
+    printf("Grand Total : %.2f\n",gradTotal);
 
 
 
