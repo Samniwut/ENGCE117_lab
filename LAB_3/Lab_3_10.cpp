@@ -34,6 +34,7 @@ int main(){
 
 }
 void printfLine(float subtotal, float totalVat,float gradTotal){
+    printf("------------------\n");
     printf("SubTotal : %.2f\n",subtotal);
     printf("VAT (7%) : %.2f \n",totalVat);
     printf("Grand Total : %.2f\n",gradTotal);
