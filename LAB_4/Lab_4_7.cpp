@@ -1,35 +1,48 @@
 #include <stdio.h>
-void print_line();
+
+void print_line(int search_value , int count);
+
  int main(){
 
-    int MAX_SIZE ,N;
+    int MAX_SIZE = 10 ,N;
     int date[MAX_SIZE];
     int search_value ,count = 0 ,i;
     
-    printf("Enter the number  of elements ")
+    printf("Enter the number  of elements (N, max = %d):",MAX_SIZE);
+    if(scanf("%d",&N) != 1){
+        return 1;
+    }
 
-    for(i = 0 ; i < STUDENTS ; i++){
-       if(scanf("%d",&scores[i]) != 1){
+    if(N > MAX_SIZE || N < 1){
+        N = MAX_SIZE ; 
+    }
+    printf("Enter %d integer number: \n",N);
+    for(i = 0 ; i < N ; i++){
+       if(scanf("%d",&date[i]) != 1){
         break;
        } 
-       sum += scores[i];
     }
-    Average = (float)sum/STUDENTS;
+  printf("Enter the Search Value :");
+  scanf("%d",&search_value);
+   
+  for (i = 0; i < N; i++)
+  {
+    if(search_value == date[i]){
+        count++;
+    }
+  }
+  
 
-    print_line();
-
-   for ( i = 0; i < STUDENTS; i++){
-     printf(" %d" ,scores[i]);
-     if(scores[i] >= Average){above_average_count++;}
- }
- 
- printf("\nTotal Sum : %d\n",sum);
- printf("Average Score : %.2f\n",Average);
- printf("Number of Score Above Average : %d\n",above_average_count);
-
+  printf("--FREQUENCY ANALYSIS REPORT--\n");
+  printf("Recorded Number: ");
+   for ( i = 0; i < N; i++){
+     printf(" %d" ,date[i]);
+    }
+    print_line(search_value,count);
     return 0; 
 
  }
- void print_line(){
- printf("Recorded Score : "); 
+ void print_line(int search_value , int count){
+    printf("\nSerch Value : %d\n",search_value);
+    printf("Frequency Count : %d\n",count);
  }
