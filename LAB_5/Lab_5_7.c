@@ -5,9 +5,6 @@ int main(){
     int SIZE = 5;
     int Numbers[SIZE];
     int original_copy[SIZE];
-   
-    
-
      for(int i = 0 ; i < SIZE ; i++){
         printf("Enter Element %d : ",i+1);
         scanf("%d",&Numbers[i]);
