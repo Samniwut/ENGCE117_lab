@@ -15,5 +15,8 @@ printf("Enter Value for Num2:");
     return 0;
 }
 void swap_values(int *a, int *b){
-
+   int num1 = *a ;
+   int num2 = *b;
+   *a = num2;
+   *b = num1;
 }
