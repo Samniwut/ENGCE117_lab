@@ -1,5 +1,5 @@
 #include <stdio.h>
-float *get_monthly_data(int *array, int MONTHS, char *type, float *total);
+void get_monthly_data(int *array, int MONTHS, char *type, float *total);
 void print_monthly_date(char *type ,float *total);
 int main(){
     int MONTHS = 3;
@@ -22,7 +22,7 @@ printf("BUSINESS STATUS : %s\n",business_stus);
 
     return 0;
 }
-float *get_monthly_data(int *array, int MONTHS, char *type, float *total){
+void get_monthly_data(int *array, int MONTHS, char *type, float *total){
    *total = 0;
     printf("\n Enter %d months of %s values : \n",MONTHS,type);
    for (int i = 0 ; i < MONTHS ; i++){
