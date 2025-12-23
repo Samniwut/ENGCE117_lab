@@ -35,3 +35,8 @@ struct Student (*GetStudent(int *room)) [10]{
     }
     return Childent;
 }
+
+
+
+
+
