@@ -1,10 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
- void go(int ***p, int **z) {
-    *p = z;
- }
-
+void go(int ***p, int **z);
 int main() {
     int *b = (int *)malloc(sizeof(int));
     int *c = (int *)malloc(sizeof(int));
@@ -19,3 +15,6 @@ int main() {
     printf("%d %p %p \n", **a,*a,&a);
     return 0;
 }
+void go(int ***p, int **z) {
+    *p = z;
+ }
