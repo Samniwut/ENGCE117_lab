@@ -16,26 +16,21 @@ void printf_list(node_t *head){
 }
  printf("\n");
 }
-
+void add_node(node_t **head, const char *name){
+    node_t *new_node = (node_t *)malloc(sizeof(node_t));
+    strcpy(new_node->name, name);
+    new_node->next = *head;
+    *head = new_node;
+}
 int main(){
-    node_t n1 ,n2 ,n3;
     node_t *head ;
-    strcpy(n1.name, "");
-    strcpy(n2.name, "one");
-    strcpy(n3.name, "two");
+    node_t *tmp;
+    
+    add_node(&tmp, "three");
+    add_node(&tmp, "two");
+    add_node(&tmp, "one");
 
-    head = &n1;
-    n3.next = NULL;
-    n2.next = &n3;
-    n1.next = &n2;
-
-    node_t n4;
-    strcpy(n4.name, "tree");
-    n4.next = NULL;
-    n3.next = &n4;
-
-
-    head = head->next;
+    head = tmp;
 
     printf_list(head);
     return 0;
