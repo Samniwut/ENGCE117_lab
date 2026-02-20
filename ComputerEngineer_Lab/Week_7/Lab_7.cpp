@@ -1,103 +1,127 @@
 #include <stdio.h>
-#include <stdlib.h> 
 #include <string.h>
-
+#include <stdlib.h>
 
 struct studentNode {
     char name[20];
-    int age; 
+    int age;
     char sex;
     float gpa;
-    studentNode *next; 
+    struct studentNode *next;
 };
 
 class LinkedList {
-protected:
-    studentNode *start; 
-    studentNode *now;   
-
-public:
-    LinkedList() {
-        start = nullptr;
-        now = nullptr;
-    }
-    virtual ~LinkedList() {
-        studentNode *temp;
-        while (start != nullptr) {
-            temp = start;
-            start = start->next;
-            delete temp;
-        }
-    }
-    void InsNodee(const char n[], int a, char s, float g) {
-        studentNode *newNode = new studentNode;
-        strcpy(newNode->name, n);
-        newNode->age = a;
-        newNode->sex = s;
-        newNode->gpa = g;
-        newNode->next = nullptr;
-
-        if (start == nullptr) {
-            start = newNode;
-            now = start;
-        } else {
-            studentNode *temp = start;
-            while (temp->next != nullptr) {
-                temp = temp->next;
-            }
-            temp->next = newNode;
-        }
-    }
-    void GoNext() {
-        if (now != nullptr && now->next != nullptr) {
-            now = now->next;
-        }
-    }
-    virtual void ShowNode() {
-        if (now != nullptr) {
-            // ใช้ %-20s เพื่อจองที่ว่าง 20 ตัวอักษรให้ชื่อดูเป็นระเบียบ
-            // ใช้ %.2f เพื่อแสดงทศนิยม 2 ตำแหน่ง
-            printf("[Current Node] Name: %-15s, Age: %d, Sex: %c, GPA: %.2f\n", 
-                   now->name, now->age, now->sex, now->gpa);
-        } else {
-            printf("List is empty.\n");
-        }
-    }
+    protected:
+        struct studentNode *start, *now;
+    public:
+        LinkedList();
+        ~LinkedList();
+        void InsNode(const char name[], int age, char sex, float gpa);
+        void GoNext();
+        virtual void ShowNode();
+        void DelNode();
 };
 
-class NewList : public LinkedList {
-public:
-    void GoFirst() {
-        now = start;
-    }
-    virtual void ShowNode() override {
+class NewList: public LinkedList {
+    public:
+        void GoFirst();
+        virtual void ShowNode();
+};
+
+LinkedList::LinkedList() {
+    start = NULL;
+    now = NULL;
+}
+
+LinkedList::~LinkedList() {
+    while(start != NULL) {
         studentNode *temp = start;
-        printf("--- All Students in List ---\n");
-        while (temp != nullptr) {
-            printf("Name: %-15s | Age: %2d | Sex: %c | GPA: %.2f\n", 
-                   temp->name, temp->age, temp->sex, temp->gpa);
-            temp = temp->next;
-        }
-        printf("----------------------------\n");
+        start = start->next;
+        free(temp);
     }
-};
+}
 
 int main() {
-    printf("Testing LinkedList (Base):\n");
     LinkedList listA;
-    listA.InsNodee("Somsak", 20, 'M', 3.50);
-    listA.InsNodee("Somying", 21, 'F', 3.85);
-    listA.ShowNode(); 
-    listA.GoNext();
-    listA.ShowNode(); 
-    
-    printf("\nTesting NewList (Derived):\n");
     NewList listB;
-    listB.InsNodee("Alice", 19, 'F', 3.90);
-    listB.InsNodee("Bob", 22, 'M', 2.75);
-    listB.InsNodee("Charlie", 20, 'M', 3.20);
-    
+    LinkedList *listC;
+
+    listA.InsNode("one",1,'A',1.1);
+    listA.InsNode("two",2,'B',2.2);
+    listA.InsNode("three",3,'C',3.3);
+    listA.GoNext();
+    listA.ShowNode();
+
+    listB.InsNode("four",4,'D',4.4);
+    listB.InsNode("five",5,'E',5.5);
+    listB.InsNode("six",6,'F',6.6);
+    listB.GoNext();
+    listB.DelNode();
     listB.ShowNode();
-    
+
+    listC = &listA;
+    listC->GoNext();
+    listC->ShowNode();
+
+    listC = &listB;
+    listC->ShowNode();
+
     return 0;
+}
+void LinkedList::InsNode(const char name[], int age, char sex, float gpa) {
+    studentNode *newNode = (studentNode*)malloc(sizeof(studentNode));
+
+    strcpy(newNode->name, name);
+    newNode->age = age;
+    newNode->sex = sex;
+    newNode->gpa = gpa;
+    newNode->next = NULL;
+
+    if(start == NULL) {
+        start = newNode;
+        now = start;
+    } else {
+        studentNode *temp = start;
+        while(temp->next != NULL) {
+            temp = temp->next;
+        }
+        temp->next = newNode;
+    }
+}
+void LinkedList::GoNext() {
+    if(now != NULL) {
+        now = now->next;
+    }
+}
+void LinkedList::DelNode() {
+    if(now == NULL) {
+        return;
+    }
+
+    if(now == start) {
+        start = start->next;
+        free(now);
+        now = start;
+    } else {
+        studentNode *temp = start;
+        while(temp->next != now) {
+            temp = temp->next;
+        }
+        temp->next = now->next;
+        free(now);
+        now = temp->next;
+    }
+}
+void NewList::GoFirst() {
+    now = start;
+}
+void LinkedList::ShowNode() {
+    if(now != NULL) {
+        printf("%s %d %c %.2f\n",now->name, now->age, now->sex, now->gpa);
+    }
+}
+void NewList::ShowNode() {
+    if(now != NULL) {
+        printf("%s %d %.2f\n",now->name, now->age, now->gpa);
+    }
 }
