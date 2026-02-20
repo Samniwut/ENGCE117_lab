@@ -1,7 +1,7 @@
-#include <iostream>
-#include <cstring>
+#include <stdio.h>
+#include <stdlib.h> 
+#include <string.h>
 
-using namespace std;
 
 struct studentNode {
     char name[20];
@@ -17,7 +17,6 @@ protected:
     studentNode *now;   
 
 public:
-    
     LinkedList() {
         start = nullptr;
         now = nullptr;
@@ -56,14 +55,16 @@ public:
     }
     virtual void ShowNode() {
         if (now != nullptr) {
-            cout << "[Current Node] Name: " << now->name 
-                 << ", Age: " << now->age 
-                 << ", GPA: " << now->gpa << endl;
+            // ใช้ %-20s เพื่อจองที่ว่าง 20 ตัวอักษรให้ชื่อดูเป็นระเบียบ
+            // ใช้ %.2f เพื่อแสดงทศนิยม 2 ตำแหน่ง
+            printf("[Current Node] Name: %-15s, Age: %d, Sex: %c, GPA: %.2f\n", 
+                   now->name, now->age, now->sex, now->gpa);
         } else {
-            cout << "List is empty." << endl;
+            printf("List is empty.\n");
         }
     }
 };
+
 class NewList : public LinkedList {
 public:
     void GoFirst() {
@@ -71,19 +72,18 @@ public:
     }
     virtual void ShowNode() override {
         studentNode *temp = start;
-        cout << "--- All Students in List ---" << endl;
+        printf("--- All Students in List ---\n");
         while (temp != nullptr) {
-            cout << "Name: " << temp->name 
-                 << " | Age: " << temp->age 
-                 << " | GPA: " << temp->gpa << endl;
+            printf("Name: %-15s | Age: %2d | Sex: %c | GPA: %.2f\n", 
+                   temp->name, temp->age, temp->sex, temp->gpa);
             temp = temp->next;
         }
-        cout << "----------------------------" << endl;
+        printf("----------------------------\n");
     }
 };
 
 int main() {
-    cout << "Testing LinkedList (Base):" << endl;
+    printf("Testing LinkedList (Base):\n");
     LinkedList listA;
     listA.InsNodee("Somsak", 20, 'M', 3.50);
     listA.InsNodee("Somying", 21, 'F', 3.85);
@@ -91,9 +91,7 @@ int main() {
     listA.GoNext();
     listA.ShowNode(); 
     
-    cout << endl;
-
-    cout << "Testing NewList (Derived):" << endl;
+    printf("\nTesting NewList (Derived):\n");
     NewList listB;
     listB.InsNodee("Alice", 19, 'F', 3.90);
     listB.InsNodee("Bob", 22, 'M', 2.75);
